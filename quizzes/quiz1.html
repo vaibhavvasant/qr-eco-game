@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz 1 - QR Eco Game</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Quiz 1</h1>
+    <div id="question-container">
+      <p id="question"></p>
+      <div id="options"></div>
+    </div>
+    <button id="submit-btn">Submit</button>
+
+    <div id="result" style="display:none;">
+      <p id="result-text"></p>
+      <img id="character-img" src="" alt="Unlocked Character" width="150">
+      <p><a href="../collection.html">View your collection</a></p>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+  <script>
+    const quizData = {
+      question: "Which of these helps reduce pollution?",
+      options: ["Planting trees", "Throwing garbage in rivers", "Using plastic bags"],
+      answer: "Planting trees"
+    };
+
+    const characters = [
+      "../characters/tree.png",
+      "../characters/recycle_bin.png",
+      "../characters/panda.png"
+    ];
+
+    initQuiz(quizData, characters);
+  </script>
+</body>
+</html>
