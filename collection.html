@@ -2,31 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Collection</title>
+  <title>My Collection</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
-<body>
+<body onload="loadCollection()">
   <div class="container">
-    <h1>Your Collection</h1>
-    <div id="collection-container"></div>
-    <p><a href="index.html">Back to Home</a></p>
+    <h1>🌟 My Collection 🌟</h1>
+    <ul id="collection-list"></ul>
+    <button onclick="window.location.href='index.html'">Back Home</button>
   </div>
-
-  <script>
-    const container = document.getElementById("collection-container");
-    const collection = JSON.parse(localStorage.getItem("collection")) || [];
-
-    if(collection.length === 0){
-      container.innerHTML = "<p>No characters unlocked yet!</p>";
-    } else {
-      collection.forEach(char => {
-        const img = document.createElement("img");
-        img.src = char;
-        img.width = 150;
-        img.style.margin = "10px";
-        container.appendChild(img);
-      });
-    }
-  </script>
 </body>
 </html>
