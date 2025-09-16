@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Collection</title>
+  <link rel="stylesheet" href="collection.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="icon-btn leaderboard" title="Leaderboard">🏆</button>
+    <div class="status">
+      <span class="streak" title="Streak">🔥 3</span>
+      <span class="health" title="Health">❤️ 2</span>
+      <button class="icon-btn profile" title="Profile">👤</button>
+    </div>
+  </header>
+
+  <!-- Collection Grid -->
+  <main class="collection-grid" id="collectionGrid">
+    <!-- Cards injected from JS -->
+  </main>
+
+  <!-- Lore popup -->
+  <div id="lore-popup" class="popup hidden">
+    <div class="popup-content">
+      <button class="close-popup">✖</button>
+      <h2 id="lore-title"></h2>
+      <p id="lore-text"></p>
+    </div>
+  </div>
+
+  <script src="collection.js"></script>
+</body>
+</html>

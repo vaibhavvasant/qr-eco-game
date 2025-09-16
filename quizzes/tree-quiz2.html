@@ -1,82 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Trees Quiz 2</title>
-  <link rel="stylesheet" href="../style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trees Quiz — Step by Step</title>
+  <link rel="stylesheet" href="tree-quiz2.css">
 </head>
 <body>
-  <h2>Trees Quiz 2</h2>
-  <form id="quizForm">
-    <ol>
-      <li>
-        Cutting too many trees is called _____?<br>
-        <label><input type="radio" name="q1" value="Afforestation"> Afforestation</label><br>
-        <label><input type="radio" name="q1" value="Deforestation"> Deforestation</label><br>
-        <label><input type="radio" name="q1" value="Plantation"> Plantation</label><br>
-        <label><input type="radio" name="q1" value="Reforestation"> Reforestation</label>
-      </li><br>
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="icon-btn" title="Leaderboard">🏆</button>
+    <div class="status">
+      <span class="streak" title="Streak">🔥 3</span>
+      <span class="health" title="Health">❤️ 2</span>
+      <button class="icon-btn profile" title="Profile">👤</button>
+    </div>
+  </header>
 
-      <li>
-        Trees give us which gas that we need to breathe?<br>
-        <label><input type="radio" name="q2" value="Oxygen"> Oxygen</label><br>
-        <label><input type="radio" name="q2" value="Carbon dioxide"> Carbon dioxide</label><br>
-        <label><input type="radio" name="q2" value="Nitrogen"> Nitrogen</label><br>
-        <label><input type="radio" name="q2" value="Methane"> Methane</label>
-      </li><br>
+  <!-- Main quiz area -->
+  <main>
+    <div class="card">
+      <h1>Trees Quiz — Step by Step</h1>
+      <p class="hint">Select the correct option to move to the next question.</p>
 
-      <li>
-        The school plans a new garden. Best time to water plants is:<br>
-        <label><input type="radio" name="q3" value="Mid-day"> Mid-day</label><br>
-        <label><input type="radio" name="q3" value="Early morning or evening"> Early morning or evening</label><br>
-        <label><input type="radio" name="q3" value="Midnight only"> Midnight only</label><br>
-        <label><input type="radio" name="q3" value="When it rains"> When it rains</label>
-      </li><br>
+      <section id="quiz-container" class="question-area" aria-live="polite">
+        <!-- Questions injected by JS -->
+      </section>
 
-      <li>
-        Which fruit tree also improves soil fertility by fixing nitrogen?<br>
-        <label><input type="radio" name="q4" value="Lemon"> Lemon</label><br>
-        <label><input type="radio" name="q4" value="Guava"> Guava</label><br>
-        <label><input type="radio" name="q4" value="Mango"> Mango</label><br>
-        <label><input type="radio" name="q4" value="Jamun"> Jamun</label>
-      </li><br>
+      <div class="controls">
+        <div class="progress" id="progress"></div>
+        <div style="flex:1"></div>
+        <button id="restartBtn" class="small-btn" style="display:none">Restart</button>
+      </div>
+    </div>
+  </main>
 
-      <li>
-        Which tree is known for its ability to release oxygen even at night?<br>
-        <label><input type="radio" name="q5" value="Peepal"> Peepal</label><br>
-        <label><input type="radio" name="q5" value="Mango"> Mango</label><br>
-        <label><input type="radio" name="q5" value="Gulmohar"> Gulmohar</label><br>
-        <label><input type="radio" name="q5" value="Neem"> Neem</label>
-      </li>
-    </ol>
-    <button type="button" onclick="checkQuiz()">Submit</button>
-  </form>
-
-  <p id="result"></p>
-  <button onclick="window.location.href='../index.html'">Back to Home</button>
-
-  <script>
-    function checkQuiz() {
-      const answers = {
-        q1: "Deforestation",
-        q2: "Oxygen",
-        q3: "Early morning or evening",
-        q4: "Guava",
-        q5: "Peepal"
-      };
-      let score = 0;
-      let total = Object.keys(answers).length;
-
-      for (let key in answers) {
-        const selected = document.querySelector(`input[name="${key}"]:checked`);
-        if (selected && selected.value === answers[key]) {
-          score++;
-        }
-      }
-
-      document.getElementById("result").textContent =
-        `You scored ${score}/${total}. 🌳 Congrats, you unlocked Forest Protector!`;
-    }
-  </script>
+  <script src="tree-quiz2.js"></script>
 </body>
 </html>

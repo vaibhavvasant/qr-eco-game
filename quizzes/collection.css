@@ -1,0 +1,242 @@
+/* Reset & fonts */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+}
+
+/* Top bar */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--card, #fff);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  z-index: 10;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.streak, .health {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Grid */
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive scaling */
+@media (max-width: 768px) {
+  .collection-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+  .char-card {
+    font-size: 0.9rem; /* shrink text slightly */
+  }
+  .lore-btn {
+    font-size: 0.9rem;
+    padding: 4px;
+  }
+}
+
+/* Card */
+.char-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.2s, opacity 0.2s, box-shadow 0.3s;
+  position: relative;
+}
+.char-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Image wrapper ensures glow doesn’t tint the image */
+.char-img-wrapper {
+  background: #fff;        /* neutral background */
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.char-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Polaroid feel */
+.char-info {
+  padding: 12px;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+}
+
+.char-name {
+  font-weight: bold;
+  margin: 6px 0;
+}
+
+.char-rarity {
+  color: gold;
+  font-size: 0.9rem;
+}
+
+.char-type {
+  display: inline-block;
+  margin: 4px 0;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.type-tree { background: #2e7d32; }
+.type-water { background: #0288d1; }
+.type-waste { background: #6d4c41; }
+.type-pollution { background: #c62828; }
+
+.char-level {
+  font-size: 0.85rem;
+  margin: 6px 0;
+}
+
+/* Lore icon button */
+.lore-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* Modal popup */
+.lore-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.lore-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: left;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  animation: popIn 0.2s ease-out;
+  position: relative;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.lore-content h2 {
+  margin-top: 0;
+}
+
+.lore-close {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Locked cards */
+.locked {
+  filter: grayscale(100%) brightness(0.7);
+  pointer-events: none;
+  opacity: 0.6;
+}
+.locked::after {
+  content: "🔒";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 1.2rem;
+}
+
+/* Type labels (badges inside card info) */
+.char-type.type-tree    { background: #2e7d32; }
+.char-type.type-water   { background: #0288d1; }
+.char-type.type-waste   { background: #6d4c41; }
+.char-type.type-pollution { background: #c62828; }
+
+/* Glow on hover (only for cards, not images) */
+@media (hover: hover) and (pointer: fine) {
+  .char-card.type-tree:hover {
+    box-shadow: 0 0 12px 2px rgba(0, 255, 13, 0.6);
+  }
+  .char-card.type-water:hover {
+    box-shadow: 0 0 12px 2px rgba(2, 136, 209, 0.6);
+  }
+  .char-card.type-waste:hover {
+    box-shadow: 0 0 12px 2px rgba(121, 44, 19, 0.6);
+  }
+  .char-card.type-pollution:hover {
+    box-shadow: 0 0 12px 2px rgba(198, 40, 40, 0.6);
+  }
+}
+
+/* Active glow (used for mobile tap) */
+.char-card.active-glow.type-tree {
+  box-shadow: 0 0 12px 2px rgba(46, 125, 50, 0.6);
+}
+.char-card.active-glow.type-water {
+  box-shadow: 0 0 12px 2px rgba(2, 136, 209, 0.6);
+}
+.char-card.active-glow.type-waste {
+  box-shadow: 0 0 12px 2px rgba(109, 76, 65, 0.6);
+}
+.char-card.active-glow.type-pollution {
+  box-shadow: 0 0 12px 2px rgba(198, 40, 40, 0.6);
+}
+
+/* Add transition to smoothly animate box-shadow */
+.char-card {
+  transition: transform 0.2s, opacity 0.2s, box-shadow 0.4s ease-in-out;
+}
