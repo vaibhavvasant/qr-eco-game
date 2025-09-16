@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trees Quiz — Step by Step</title>
+  <link rel="stylesheet" href="tree-quiz1.css">
+</head>
+<body>
+  <main class="card" role="main">
+    <h1>Trees Quiz — Step by Step</h1>
+    <p class="hint">Select the correct option to move to the next question.</p>
+
+    <section id="quiz-container" class="question-area" aria-live="polite">
+      <!-- Questions injected by JS -->
+    </section>
+
+    <div class="controls" aria-hidden="false">
+      <div class="progress" id="progress"></div>
+      <div style="flex:1"></div>
+      <button id="restartBtn" class="small-btn" style="display:none">Restart</button>
+    </div>
+  </main>
+
+  <script src="tree-quiz1.js"></script>
+</body>
+</html>
