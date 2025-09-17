@@ -1,3 +1,4 @@
+const POLLUTION_QUESTIONS = [
 {
     q: `If trees could talk, what do you think they would complain about the most?`,
     opts: ["Too much sunlight", "Being cut down", "Getting wanted", "Birds sitting on them"],
