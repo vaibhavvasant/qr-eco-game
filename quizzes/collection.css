@@ -108,7 +108,7 @@ body {
 
 .char-rarity {
   color: gold;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
 }
 
 .char-type {
@@ -191,7 +191,15 @@ body {
   filter: grayscale(100%) brightness(0.7);
   pointer-events: none;
   opacity: 0.6;
+  position: relative;
 }
+
+/* Blur the image inside locked card */
+.locked .char-img {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+}
+
 .locked::after {
   content: "🔒";
   position: absolute;

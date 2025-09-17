@@ -8,8 +8,8 @@ const CHARACTERS = [
   { name: "Rain Dancer", img: "../characters/water_common.jpg", rarity: 1, type: "water", level: 1, lore: "Summons rainfall when needed.", unlocked: false },
   { name: "Ocean Guardian", img: "../characters/water_rare.jpg", rarity: 5, type: "water", level: 1, lore: "Keeps the seas alive.", unlocked: false },
 
-  { name: "Waste Warrior", img: "../characters/waste_common.jpg", rarity: 1, type: "waste", level: 3, lore: "Turns trash into treasure.", unlocked: true },
-  { name: "Recycler Golem", img: "../characters/waste_uncommon.jpg", rarity: 3, type: "waste", level: 1, lore: "Never lets waste pile up.", unlocked: false },
+  { name: "Waste Warrior", img: "../characters/waste_common.png", rarity: 1, type: "waste", level: 3, lore: "Turns trash into treasure.", unlocked: true },
+  { name: "Recycler Golem", img: "../characters/waste_uncommon.png", rarity: 3, type: "waste", level: 1, lore: "Never lets waste pile up.", unlocked: false },
   { name: "Compost Sage", img: "../characters/waste_rare.jpg", rarity: 5, type: "waste", level: 1, lore: "Turns scraps into life.", unlocked: false },
 
   { name: "Smog Phantom", img: "../characters/pollution_uncommon.jpg", rarity: 3, type: "pollution", level: 1, lore: "Feeds on pollutants.", unlocked: true },
