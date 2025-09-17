@@ -114,3 +114,4 @@ leaderboardBtn.addEventListener("click", () => {
 profileBtn.addEventListener("click", () => {
   window.location.href = "profile.html";
 });
+

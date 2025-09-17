@@ -7,21 +7,36 @@
   <link rel="stylesheet" href="tree-quiz1.css">
 </head>
 <body>
-  <main class="card" role="main">
-    <h1>Trees Quiz — Step by Step</h1>
-    <p class="hint">Select the correct option to move to the next question.</p>
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="icon-btn" title="Leaderboard">🏆</button>
+    <div class="status">
+      <span class="streak" title="Streak">🔥 3</span>
+      <span class="health" title="Health">❤️ 2</span>
+      <button class="icon-btn profile" title="Profile">👤</button>
+    </div>
+  </header>
 
-    <section id="quiz-container" class="question-area" aria-live="polite">
-      <!-- Questions injected by JS -->
-    </section>
+  <!-- Main quiz area -->
+  <main>
+    <div class="card">
+      <h1>Trees Quiz — Step by Step</h1>
+      <p class="hint">Select the correct option to move to the next question.</p>
 
-    <div class="controls" aria-hidden="false">
-      <div class="progress" id="progress"></div>
-      <div style="flex:1"></div>
-      <button id="restartBtn" class="small-btn" style="display:none">Restart</button>
+      <section id="quiz-container" class="question-area" aria-live="polite">
+        <!-- Questions injected by JS -->
+      </section>
+
+      <div class="controls">
+        <div class="progress" id="progress"></div>
+        <div style="flex:1"></div>
+        <button id="restartBtn" class="small-btn" style="display:none">Restart</button>
+      </div>
     </div>
   </main>
+  
+<script src="awardCharacter.js"></script>
+<script src="tree-quiz1.js"></script>
 
-  <script src="tree-quiz1.js"></script>
 </body>
 </html>
