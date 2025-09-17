@@ -34,4 +34,3 @@ const WASTE_QUESTIONS = [
     ],
     correct: 1
   }
-  ]
