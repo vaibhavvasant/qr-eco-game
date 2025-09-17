@@ -1,3 +1,4 @@
+const WASTE_QUESTIONS = [
 {
     q: `A friend brings lunch in aluminium foil every day. Best tip?`,
     opts: [
@@ -38,4 +39,4 @@
     opts: ["Banana peel", "Plastic spoon", "Aluminium foil", "Glass beads"],
     correct: 0
   }
-];
+]
