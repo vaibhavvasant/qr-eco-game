@@ -8,43 +8,46 @@ function awardCharacter(type) {
 
   const characters = {
     tree: {
-      common: ["../characters/tree_common.jpg"],
-      uncommon: ["../characters/tree_uncommon.jpg"],
-      rare: ["../characters/tree_rare.png"]
+      common: ["tree_common.jpg"],
+      uncommon: ["tree_uncommon.jpg"],
+      rare: ["tree_rare.png"]
     },
     water: {
-      common: ["../characters/water_common.jpg"],
-      uncommon: ["../characters/water_uncommon.jpg"],
-      rare: ["../characters/water_rare.jpg"]
+      common: ["water_common.jpg"],
+      uncommon: ["water_uncommon.jpg"],
+      rare: ["water_rare.jpg"]
     },
     waste: {
-      common: ["../characters/waste_common.jpg"],
-      uncommon: ["../characters/waste_uncommon.jpg"],
-      rare: ["../characters/waste_rare.jpg"]
+      common: ["waste_common.jpg"],
+      uncommon: ["waste_uncommon.png"],
+      rare: ["waste_rare.png"]
     },
     pollution: {
-      common: ["../characters/pollution_common.jpg"],
-      uncommon: ["../characters/pollution_uncommon.jpg"],
-      rare: ["../characters/pollution_rare.jpg"]
+      common: ["pollution_common.jpg"],
+      uncommon: ["pollution_uncommon.jpg"],
+      rare: ["pollution_rare.jpg"]
     }
   };
 
+  // Pick a character filename
   const pool = characters[type][rarity];
-  const selected = pool[Math.floor(Math.random() * pool.length)];
+  const filename = pool[Math.floor(Math.random() * pool.length)];
 
+  // Load & update collection
   const collection = JSON.parse(localStorage.getItem("characterCollection") || "{}");
 
-  if (!collection[selected]) {
-    collection[selected] = { type, rarity, level: 1 }; // new unlock starts at level 1
+  if (!collection[filename]) {
+    collection[filename] = { type, rarity, level: 1 }; // new unlock
   } else {
-    collection[selected].level += 1; // level up
+    collection[filename].level += 1; // level up
   }
 
   localStorage.setItem("characterCollection", JSON.stringify(collection));
 
+  // Return with proper path for modal display
   return {
-    character: selected, // filename
+    character: `../characters/${filename}`, // for modal img src
     rarity,
-    level: collection[selected].level
+    level: collection[filename].level
   };
 }

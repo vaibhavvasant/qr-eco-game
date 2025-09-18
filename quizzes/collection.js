@@ -1,21 +1,81 @@
-// Full collection (12 characters: 3 of each type)
-const CHARACTERS = [
-  { name: "Peepal Guardian", img: "../characters/tree_rare.png", rarity: 5, type: "tree", level: 2, lore: "An ancient tree spirit that releases oxygen even at night.", unlocked: true },
-  { name: "Banyan Protector", img: "../characters/tree_uncommon.jpg", rarity: 3, type: "tree", level: 1, lore: "Holds wisdom of centuries.", unlocked: false },
-  { name: "Neem Healer", img: "../characters/tree_common.jpg", rarity: 1, type: "tree", level: 1, lore: "Purifies air and heals surroundings.", unlocked: false },
+// Character metadata (fixed info)
+const CHARACTER_META = {
+  "tree_common.jpg": {
+    name: "Neem Healer",
+    rarity: 1,
+    type: "tree",
+    lore: "Purifies air and heals surroundings."
+  },
+  "tree_uncommon.jpg": {
+    name: "Banyan Protector",
+    rarity: 3,
+    type: "tree",
+    lore: "Holds wisdom of centuries."
+  },
+  "tree_rare.png": {
+    name: "Peepal Guardian",
+    rarity: 5,
+    type: "tree",
+    lore: "An ancient tree spirit that releases oxygen even at night."
+  },
 
-  { name: "River Sprite", img: "../characters/water_uncommon.jpg", rarity: 3, type: "water", level: 1, lore: "Protects flowing waters.", unlocked: true },
-  { name: "Rain Dancer", img: "../characters/water_common.jpg", rarity: 1, type: "water", level: 1, lore: "Summons rainfall when needed.", unlocked: false },
-  { name: "Ocean Guardian", img: "../characters/water_rare.jpg", rarity: 5, type: "water", level: 1, lore: "Keeps the seas alive.", unlocked: false },
+  "water_common.jpg": {
+    name: "Rain Dancer",
+    rarity: 1,
+    type: "water",
+    lore: "Summons rainfall when needed."
+  },
+  "water_uncommon.jpg": {
+    name: "River Sprite",
+    rarity: 3,
+    type: "water",
+    lore: "Protects flowing waters."
+  },
+  "water_rare.jpg": {
+    name: "Ocean Guardian",
+    rarity: 5,
+    type: "water",
+    lore: "Keeps the seas alive."
+  },
 
-  { name: "Waste Warrior", img: "../characters/waste_common.jpg", rarity: 1, type: "waste", level: 3, lore: "Turns trash into treasure.", unlocked: true },
-  { name: "Recycler Golem", img: "../characters/waste_uncommon.jpg", rarity: 3, type: "waste", level: 1, lore: "Never lets waste pile up.", unlocked: false },
-  { name: "Compost Sage", img: "../characters/waste_rare.jpg", rarity: 5, type: "waste", level: 1, lore: "Turns scraps into life.", unlocked: false },
+  "waste_common.jpg": {
+    name: "Waste Warrior",
+    rarity: 1,
+    type: "waste",
+    lore: "Turns trash into treasure."
+  },
+  "waste_uncommon.jpg": {
+    name: "Recycler Golem",
+    rarity: 3,
+    type: "waste",
+    lore: "Never lets waste pile up."
+  },
+  "waste_rare.png": {
+    name: "Compost Sage",
+    rarity: 5,
+    type: "waste",
+    lore: "Turns scraps into life."
+  },
 
-  { name: "Smog Phantom", img: "../characters/pollution_uncommon.jpg", rarity: 3, type: "pollution", level: 1, lore: "Feeds on pollutants.", unlocked: true },
-  { name: "Ash Wraith", img: "../characters/pollution_common.jpg", rarity: 1, type: "pollution", level: 1, lore: "Clears smoky skies.", unlocked: false },
-  { name: "Toxin Eater", img: "../characters/pollution_rare.jpg", rarity: 5, type: "pollution", level: 1, lore: "Absorbs deadly toxins.", unlocked: false }
-];
+  "pollution_common.jpg": {
+    name: "Ash Wraith",
+    rarity: 1,
+    type: "pollution",
+    lore: "Clears smoky skies."
+  },
+  "pollution_uncommon.jpg": {
+    name: "Smog Phantom",
+    rarity: 3,
+    type: "pollution",
+    lore: "Feeds on pollutants."
+  },
+  "pollution_rare.jpg": {
+    name: "Toxin Eater",
+    rarity: 5,
+    type: "pollution",
+    lore: "Absorbs deadly toxins."
+  }
+};
 
 // Grab elements
 const grid = document.getElementById("collectionGrid");
@@ -27,31 +87,43 @@ const leaderboardBtn = document.querySelector("header .icon-btn:first-child");
 // Render collection
 function renderCollection() {
   grid.innerHTML = "";
-  CHARACTERS.forEach(char => {
+
+  // Load progress from localStorage
+  const progress = JSON.parse(localStorage.getItem("characterCollection") || "{}");
+
+  Object.keys(CHARACTER_META).forEach(filename => {
+    const meta = CHARACTER_META[filename];
+    const acquired = progress[filename];
+
     const card = document.createElement("div");
-    card.className = `char-card type-${char.type}` + (char.unlocked ? "" : " locked");
+    card.className = `char-card type-${meta.type}` + (acquired ? "" : " locked");
+
+
 
     card.innerHTML = `
       <div class="char-img-wrapper">
-        <img class="char-img" src="${char.img}" alt="${char.name}" />
-        <button class="lore-btn">📖</button>
+        <img class="char-img" src="../characters/${filename}" alt="${meta.name}" />
+        <button class="lore-btn" ${acquired ? "" : "disabled"}>📖</button>
       </div>
       <div class="char-info">
-        <div class="char-name">${char.name}</div>
-        <div class="char-rarity">${"★".repeat(char.rarity)}</div>
-        <div class="char-type type-${char.type}">${char.type}</div>
-        <div class="char-level">Lvl ${char.level}</div>
+        <div class="char-name">${meta.name}</div>
+        <div class="char-rarity">${"★".repeat(meta.rarity)}</div>
+        <div class="char-type type-${meta.type}">${meta.type}</div>
+        <div class="char-level">${acquired ? "Lvl " + acquired.level : "Locked"}</div>
       </div>
     `;
 
-    if (char.unlocked) {
+    if (acquired) {
       const loreBtn = card.querySelector(".lore-btn");
       loreBtn.addEventListener("click", () => {
-        openLoreModal(char);
+        openLoreModal({
+          ...meta,
+          level: acquired.level
+        });
       });
     }
 
-    // Add tap feedback (for mobile) **inside the loop**
+    // Tap feedback
     card.addEventListener("touchstart", () => {
       card.classList.add("active-glow");
       setTimeout(() => card.classList.remove("active-glow"), 1200);
@@ -78,7 +150,7 @@ function openLoreModal(char) {
     </div>
   `;
 
-   document.body.appendChild(modal);
+  document.body.appendChild(modal);
 
   modal.querySelector(".lore-close").addEventListener("click", () => {
     modal.remove();
