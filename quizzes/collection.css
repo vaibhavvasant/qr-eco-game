@@ -200,6 +200,11 @@ body {
   font-size: 1.2rem;
 }
 
+.char-card.locked .char-img {
+  filter: blur(4px) grayscale(100%);
+}
+
+
 /* Type labels (badges inside card info) */
 .char-type.type-tree    { background: #2e7d32; }
 .char-type.type-water   { background: #0288d1; }
