@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Trees Quiz — Step by Step</title>
+  <title>Waste Quiz — Step by Step</title>
   <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
   <!-- Main quiz area -->
   <main>
     <div class="card">
-      <h1>Trees Quiz — Step by Step</h1>
+      <h1>Waste Quiz — Step by Step</h1>
       <p class="hint">Select the correct option to move to the next question.</p>
 
       <section id="quiz-container" class="question-area" aria-live="polite">
@@ -46,19 +46,61 @@
     </div>
   </div>
 
-  <!-- Quiz data -->
+  <!-- ----- Quiz data for this page ----- -->
   <script>
-    const QUIZ_TYPE = "tree";
-    const QUESTIONS = [
-      { q: `Which of these trees is known as the "oxygen factory"?`, opts: ["Banyan", "Neem", "Peepal", "Mango"], correct: 2 },
-      { q: `Which tree’s leaf is this? (Peepal/Neem/Mango)`, opts: ["Peepal", "Neem", "Mango"], correct: 2 },
-      { q: `Planting which type of trees can help reduce air pollution the most?`, opts: ["Evergreen trees", "Desert shrubs", "Short grasses", "Cactus"], correct: 0 },
-      { q: `Cutting trees near rivers increases the risk of floods.`, opts: ["True", "False"], correct: 0 },
-      { q: `Which city is known as the "Garden City of India"?`, opts: ["Jaipur", "Bengaluru", "Lucknow", "Bhopal"], correct: 1 }
-    ];
+    // quiz type (used by awardCharacter)
+    const QUIZ_TYPE = "waste";
+
+    // questions array used by the shared engine
+const QUESTIONS = [
+{
+    q: `A friend brings lunch in aluminium foil every day. Best tip?`,
+    opts: [
+      "Switch to reusable steel or cloth wraps",
+      "Use thicker foil",
+      "Double-wrap for safety",
+      "Throw it all together"
+    ],
+    correct: 0
+  },
+  {
+    q: `Best way to cut e-waste at home?`,
+    opts: [
+      "Upgrade phone yearly",
+      "Donate or recycle old devices",
+      "Keep in drawer forever",
+      "Smash and bin"
+    ],
+    correct: 1
+  },
+  {
+    q: `Which everyday item takes the longest to decompose?`,
+    opts: ["Paper cup", "Plastic bottle", "Cotton cloth", "Orange peel"],
+    correct: 1
+  },
+  {
+    q: `If leftover pizza slices could talk, what would be their greenest wish?`,
+    opts: [
+      "Sleep in the fridge for tomorrow",
+      "Travel to the landfill",
+      "Fly to the moon",
+      "Jump into the washing machine"
+    ],
+    correct: 0
+  },
+  {
+    q: `Which of these would your compost bin call a “yummy snack”?`,
+    opts: ["Banana peel", "Plastic spoon", "Aluminium foil", "Glass beads"],
+    correct: 0
+  }
+]
+
   </script>
 
+  <!-- shared reward/character logic (already in your project) -->
   <script src="awardCharacter.js"></script>
+
+  <!-- shared quiz engine -->
   <script src="quiz.js"></script>
 </body>
 </html>
