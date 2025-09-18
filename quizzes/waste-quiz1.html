@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Trees Quiz — Step by Step</title>
+  <title>Waste Quiz — Step by Step</title>
   <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
   <!-- Main quiz area -->
   <main>
     <div class="card">
-      <h1>Trees Quiz — Step by Step</h1>
+      <h1>Waste Quiz — Step by Step</h1>
       <p class="hint">Select the correct option to move to the next question.</p>
 
       <section id="quiz-container" class="question-area" aria-live="polite">
@@ -46,19 +46,55 @@
     </div>
   </div>
 
-  <!-- Quiz data -->
+  <!-- ----- Quiz data for this page ----- -->
   <script>
-    const QUIZ_TYPE = "tree";
+    // quiz type (used by awardCharacter)
+    const QUIZ_TYPE = "waste";
+
+    // questions array used by the shared engine
     const QUESTIONS = [
-      { q: `Which of these trees is known as the "oxygen factory"?`, opts: ["Banyan", "Neem", "Peepal", "Mango"], correct: 2 },
-      { q: `Which tree’s leaf is this? (Peepal/Neem/Mango)`, opts: ["Peepal", "Neem", "Mango"], correct: 2 },
-      { q: `Planting which type of trees can help reduce air pollution the most?`, opts: ["Evergreen trees", "Desert shrubs", "Short grasses", "Cactus"], correct: 0 },
-      { q: `Cutting trees near rivers increases the risk of floods.`, opts: ["True", "False"], correct: 0 },
-      { q: `Which city is known as the "Garden City of India"?`, opts: ["Jaipur", "Bengaluru", "Lucknow", "Bhopal"], correct: 1 }
-    ];
+  {
+    q: `More people in the world have access to mobile phones than to clean toilets.`,
+    opts: ["True", "False"],
+    correct: 0
+  },
+  {
+    q: `What color bin is usually used for biodegradable waste in India?`,
+    opts: ["Green", "Blue", "Black", "Red"],
+    correct: 0
+  },
+  {
+    q: `Which gas is released from landfills when waste decomposes?`,
+    opts: ["Oxygen", "Methane", "Helium", "Carbon Monoxide"],
+    correct: 1
+  },
+  {
+    q: `You buy a large soda but can’t finish it. What’s the most eco-friendly thing to do with the leftover drink?`,
+    opts: [
+      "Pour it down the sink",
+      "Throw the cup + drink in the trash",
+      "Share with someone or store in fridge",
+      "Pour it in a garden as compost water"
+    ],
+    correct: 2
+  },
+  {
+    q: `The concept of a “circular economy” means:`,
+    opts: [
+      "Throwing waste in a circular landfill",
+      "Reusing materials to reduce waste",
+      "Selling waste back to factories",
+      "Recycling only plastics"
+    ],
+    correct: 1
+  }
+]
   </script>
 
+  <!-- shared reward/character logic (already in your project) -->
   <script src="awardCharacter.js"></script>
+
+  <!-- shared quiz engine -->
   <script src="quiz.js"></script>
 </body>
 </html>

@@ -3,25 +3,88 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Trees Quiz — Step by Step</title>
-  <link rel="stylesheet" href="tree-quiz1.css">
+  <title>Water Quiz — Step by Step</title>
+  <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
-  <main class="card" role="main">
-    <h1>Trees Quiz — Step by Step</h1>
-    <p class="hint">Select the correct option to move to the next question.</p>
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="icon-btn" title="Leaderboard">🏆</button>
+    <div class="status">
+      <span class="streak" title="Streak">🔥 3</span>
+      <span class="health" title="Health">❤️ 3</span>
+      <button class="icon-btn profile" title="Profile">👤</button>
+    </div>
+  </header>
 
-    <section id="quiz-container" class="question-area" aria-live="polite">
-      <!-- Questions injected by JS -->
-    </section>
+  <!-- Main quiz area -->
+  <main>
+    <div class="card">
+      <h1>Water Quiz — Step by Step</h1>
+      <p class="hint">Select the correct option to move to the next question.</p>
 
-    <div class="controls" aria-hidden="false">
-      <div class="progress" id="progress"></div>
-      <div style="flex:1"></div>
-      <button id="restartBtn" class="small-btn" style="display:none">Restart</button>
+      <section id="quiz-container" class="question-area" aria-live="polite">
+        <!-- Questions injected by quiz.js -->
+      </section>
+
+      <div class="controls">
+        <div class="progress" id="progress"></div>
+        <div style="flex:1"></div>
+        <button id="restartBtn" class="small-btn" style="display:none">Restart</button>
+      </div>
     </div>
   </main>
 
-  <script src="tree-quiz1.js"></script>
+  <!-- Reward modal -->
+  <div id="reward-modal" class="reward-modal" hidden>
+    <div class="reward-content" role="dialog" aria-modal="true" aria-labelledby="reward-title">
+      <button id="closeReward" class="close-btn" aria-label="Close">✕</button>
+      <h2 id="reward-title">🎉 New Character Unlocked!</h2>
+      <img id="reward-img" src="" alt="Unlocked character image">
+      <p id="reward-name" class="reward-name"></p>
+      <button id="viewCollection" class="collect-btn">Go to Collection</button>
+    </div>
+  </div>
+
+  <!-- ----- Quiz data for this page ----- -->
+  <script>
+    // quiz type (used by awardCharacter)
+    const QUIZ_TYPE = "water";
+
+    // questions array used by the shared engine
+const QUESTIONS = [
+  {
+    q: `Which gas is essential for photosynthesis?`,
+    opts: ["Carbon Dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
+    correct: 0
+  },
+  {
+    q: `What is the main source of energy for the Earth’s climate system?`,
+    opts: ["The Moon", "The Sun", "Volcanoes", "Wind"],
+    correct: 1
+  },
+  {
+    q: `Which renewable energy source uses flowing water to generate electricity?`,
+    opts: ["Solar power", "Hydroelectric power", "Geothermal energy", "Biofuel"],
+    correct: 1
+  },
+  {
+    q: `Which layer of the atmosphere contains the ozone layer?`,
+    opts: ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"],
+    correct: 1
+  },
+  {
+    q: `Which gas is the primary cause of acid rain?`,
+    opts: ["Carbon Monoxide", "Sulfur Dioxide", "Methane", "Helium"],
+    correct: 1
+  }
+];
+  </script>
+
+  <!-- shared reward/character logic (already in your project) -->
+  <script src="awardCharacter.js"></script>
+
+  <!-- shared quiz engine -->
+  <script src="quiz.js"></script>
 </body>
 </html>
