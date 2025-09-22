@@ -1,6 +1,7 @@
 async function loadQuestions() {
-  const API_KEY = "api key"; // replace with your Gemini key
-  const topic = "Forest Environmental Education"; // can be dynamic
+  const API_KEY = "API Key Here"; // replace with your Gemini key
+  const topic = window.QUIZ_TOPIC || "Water Pollution";
+ // can be dynamic
 
   const prompt = `
 Generate 5 multiple-choice quiz questions on "${topic}". 

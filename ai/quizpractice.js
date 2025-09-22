@@ -14,7 +14,7 @@ function startQuiz() {
   renderQuestion(idx);
   updateUI();
 }
-window.startQuiz = startQuiz;
+
 
 
 (function () {
@@ -125,7 +125,13 @@ window.startQuiz = startQuiz;
     container.appendChild(optsWrap);
     updateUI();
   }
-  window.renderQuestion = renderQuestion;
+// expose globally BEFORE AI calls startQuiz
+window.updateUI = updateUI;
+window.renderQuestion = renderQuestion;
+window.startQuiz = function() {
+  if (QUESTIONS.length > 0) renderQuestion(0);
+};
+
 
 
   // Option clicked
@@ -245,3 +251,5 @@ function showFinal() {
     renderQuestion, optionClicked, showFinal, showGameOver, restartQuiz
   };
 })();
+
+

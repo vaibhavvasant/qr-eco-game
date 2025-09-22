@@ -2,6 +2,21 @@
    Expects QUIZ_TYPE and QUESTIONS to be defined before this script runs.
    Handles: rendering questions, streak/health UI, game over, final + optional reward modal.
 */
+
+
+function startQuiz() {
+  if (!QUESTIONS || QUESTIONS.length === 0) {
+    console.error("No QUESTIONS available to start the quiz.");
+    return;
+  }
+  idx = 0;
+  health = 3;
+  renderQuestion(idx);
+  updateUI();
+}
+
+
+
 (function () {
   // Safety checks
   if (typeof QUESTIONS === "undefined") {
@@ -110,6 +125,14 @@
     container.appendChild(optsWrap);
     updateUI();
   }
+// expose globally BEFORE AI calls startQuiz
+window.updateUI = updateUI;
+window.renderQuestion = renderQuestion;
+window.startQuiz = function() {
+  if (QUESTIONS.length > 0) renderQuestion(0);
+};
+
+
 
   // Option clicked
   function optionClicked(button, chosenIndex, correctIndex) {
@@ -207,15 +230,26 @@ function showFinal() {
   if (restartBtn) restartBtn.addEventListener("click", restartQuiz);
 
   // Init on DOMContentLoaded
+  /*
   window.addEventListener("DOMContentLoaded", () => {
     dailyCheckIn();
     health = 3;
     renderQuestion(idx);
     updateUI();
   });
+*/
+  window.addEventListener("DOMContentLoaded", () => {
+  dailyCheckIn();
+  health = 3;
+  updateUI();
+  // renderQuestion(idx);  <-- removed
+  });
+
 
   // Expose some helpers for debugging (optional)
   window._qrQuiz = {
     renderQuestion, optionClicked, showFinal, showGameOver, restartQuiz
   };
 })();
+
+

@@ -5,8 +5,8 @@
   
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Water Quiz — Step by Step</title>
-  <link rel="stylesheet" href="quizpractice.css">
+  <title>Waste Quiz — Step by Step</title>
+  <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
   <!-- Top bar -->
@@ -22,7 +22,7 @@
   <!-- Main quiz area -->
   <main>
     <div class="card">
-      <h1>Water Quiz — Step by Step</h1>
+      <h1>Waste Quiz — Step by Step</h1>
       <p class="hint">Select the correct option to move to the next question.</p>
 
       <section id="quiz-container" class="question-area" aria-live="polite">
@@ -54,16 +54,16 @@
   
 
   <script>
-  window.QUIZ_TOPIC = "Water Pollution";
-  const QUIZ_TYPE = "water"; // or "tree"
+  window.QUIZ_TOPIC = "Waste Management";
+  const QUIZ_TYPE = "waste"; // or "tree"
   let QUESTIONS = []; // AI will fill this
   </script>
 
 <!-- Quiz engine first -->
-<script src="quizpractice.js"></script>
+<script src="quiz.js"></script>
 
 <!-- Then the AI loader -->
-<script src="quizAI2.js"></script>
+<script src="quizAI.js"></script>
 
 <!-- Optional: reward script -->
 <script src="awardCharacter.js"></script>
