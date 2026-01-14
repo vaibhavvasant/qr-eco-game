@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FFFfff; /* Eco theme */
+}
+
+/* Login container */
+.login-container {
+  background: #D4FFBA;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 1.5rem;
+  color: #2e7d32;
+}
+
+/* Input fields */
+.login-container input {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.login-container input:focus {
+  border-color: #56ab2f;
+}
+
+/* Buttons */
+.login-container button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.6rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#signupBtn {
+  background: #4caf50;
+  color: white;
+}
+
+#signupBtn:hover {
+  background: #43a047;
+  transform: scale(1.02);
+}
+
+#loginBtn {
+  background: #2e7d32;
+  color: white;
+}
+
+#loginBtn:hover {
+  background: #1b5e20;
+  transform: scale(1.02);
+}
+
+#googleBtn {
+  background: #4D68FA;
+  color: white;
+}
+
+#googleBtn:hover {
+  background: #2948FF;
+  transform: scale(1.02);
+}
+
+/* Divider */
+.login-container hr {
+  margin: 1.5rem 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}

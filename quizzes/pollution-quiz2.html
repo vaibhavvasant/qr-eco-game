@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pollution Quiz — Step by Step</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="icon-btn" title="Leaderboard">🏆</button>
+    <div class="status">
+      <span class="streak" title="Streak">🔥 3</span>
+      <span class="health" title="Health">❤️ 3</span>
+      <button class="icon-btn profile" title="Profile">👤</button>
+    </div>
+  </header>
+
+  <!-- Main quiz area -->
+  <main>
+    <div class="card">
+      <h1>Pollution Quiz — Step by Step</h1>
+      <p class="hint">Select the correct option to move to the next question.</p>
+
+      <section id="quiz-container" class="question-area" aria-live="polite">
+        <!-- Questions injected by quiz.js -->
+      </section>
+
+      <div class="controls">
+        <div class="progress" id="progress"></div>
+        <div style="flex:1"></div>
+        <button id="restartBtn" class="small-btn" style="display:none">Restart</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Reward modal -->
+  <div id="reward-modal" class="reward-modal" hidden>
+    <div class="reward-content" role="dialog" aria-modal="true" aria-labelledby="reward-title">
+      <button id="closeReward" class="close-btn" aria-label="Close">✕</button>
+      <h2 id="reward-title">🎉 New Character Unlocked!</h2>
+      <img id="reward-img" src="" alt="Unlocked character image">
+      <p id="reward-name" class="reward-name"></p>
+      <button id="viewCollection" class="collect-btn">Go to Collection</button>
+    </div>
+  </div>
+
+  <!-- ----- Quiz data for this page ----- -->
+  <script>
+    // quiz type (used by awardCharacter)
+    const QUIZ_TYPE = "pollution";
+
+    // questions array used by the shared engine
+    const QUESTIONS = [
+{
+    q: `If trees could talk, what do you think they would complain about the most?`,
+    opts: ["Too much sunlight", "Being cut down", "Getting wanted", "Birds sitting on them"],
+    correct: 1
+  },
+  {
+    q: `Which activity lowers your personal carbon footprint the most?`,
+    opts: [
+      "Taking one less flight a year",
+      "Turning off lights for an hour",
+      "Planting a small indoor plant",
+      "Drinking cold water"
+    ],
+    correct: 0
+  },
+  {
+    q: `Imagine Earth had a “health report card”. With rising pollution, what grade might it get?`,
+    opts: ["A+", "B", "C", "D or below"],
+    correct: 3
+  },
+  {
+    q: `Which superhero would be the BEST at fighting pollution?`,
+    opts: ["Aquaman", "Captain Planet", "Batman", "Iron Man"],
+    correct: 1
+  },
+  {
+    q: `You read “AQI= 150”. What does this mean?`,
+    opts: [
+      "Air is safe for all",
+      "Unhealthy for sensitive groups",
+      "Perfect weather",
+      "Only affects animals"
+    ],
+    correct: 1
+  }
+];
+
+  </script>
+
+  <!-- shared reward/character logic (already in your project) -->
+  <script src="awardCharacter.js"></script>
+
+  <!-- shared quiz engine -->
+  <script src="quiz.js"></script>
+</body>
+</html>

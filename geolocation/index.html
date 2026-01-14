@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeoBorro</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="icon-btn leaderboard" title="Leaderboard">🏆</button>
+    <div class="status">
+      <span class="streak" title="Streak">🔥 0</span>
+      <span class="health" title="Health">❤️ 3</span>
+      <button class="icon-btn profile" title="Profile">👤</button>
+    </div>
+  </header>
+
+  <!-- Overlay for messages -->
+  <div id="game-overlay"><span id="game-message"></span></div>
+
+  <!-- Map -->
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="../data/locations.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

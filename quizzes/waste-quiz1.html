@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Waste Quiz — Step by Step</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="icon-btn" title="Leaderboard">🏆</button>
+    <div class="status">
+      <span class="streak" title="Streak">🔥 3</span>
+      <span class="health" title="Health">❤️ 3</span>
+      <button class="icon-btn profile" title="Profile">👤</button>
+    </div>
+  </header>
+
+  <!-- Main quiz area -->
+  <main>
+    <div class="card">
+      <h1>Waste Quiz — Step by Step</h1>
+      <p class="hint">Select the correct option to move to the next question.</p>
+
+      <section id="quiz-container" class="question-area" aria-live="polite">
+        <!-- Questions injected by quiz.js -->
+      </section>
+
+      <div class="controls">
+        <div class="progress" id="progress"></div>
+        <div style="flex:1"></div>
+        <button id="restartBtn" class="small-btn" style="display:none">Restart</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Reward modal -->
+  <div id="reward-modal" class="reward-modal" hidden>
+    <div class="reward-content" role="dialog" aria-modal="true" aria-labelledby="reward-title">
+      <button id="closeReward" class="close-btn" aria-label="Close">✕</button>
+      <h2 id="reward-title">🎉 New Character Unlocked!</h2>
+      <img id="reward-img" src="" alt="Unlocked character image">
+      <p id="reward-name" class="reward-name"></p>
+      <button id="viewCollection" class="collect-btn">Go to Collection</button>
+    </div>
+  </div>
+
+  <!-- ----- Quiz data for this page ----- -->
+  <script>
+    // quiz type (used by awardCharacter)
+    const QUIZ_TYPE = "waste";
+
+    // questions array used by the shared engine
+    const QUESTIONS = [
+  {
+    q: `More people in the world have access to mobile phones than to clean toilets.`,
+    opts: ["True", "False"],
+    correct: 0
+  },
+  {
+    q: `What color bin is usually used for biodegradable waste in India?`,
+    opts: ["Green", "Blue", "Black", "Red"],
+    correct: 0
+  },
+  {
+    q: `Which gas is released from landfills when waste decomposes?`,
+    opts: ["Oxygen", "Methane", "Helium", "Carbon Monoxide"],
+    correct: 1
+  },
+  {
+    q: `You buy a large soda but can’t finish it. What’s the most eco-friendly thing to do with the leftover drink?`,
+    opts: [
+      "Pour it down the sink",
+      "Throw the cup + drink in the trash",
+      "Share with someone or store in fridge",
+      "Pour it in a garden as compost water"
+    ],
+    correct: 2
+  },
+  {
+    q: `The concept of a “circular economy” means:`,
+    opts: [
+      "Throwing waste in a circular landfill",
+      "Reusing materials to reduce waste",
+      "Selling waste back to factories",
+      "Recycling only plastics"
+    ],
+    correct: 1
+  }
+]
+  </script>
+
+  <!-- shared reward/character logic (already in your project) -->
+  <script src="awardCharacter.js"></script>
+
+  <!-- shared quiz engine -->
+  <script src="quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pollution Quiz — Step by Step</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="icon-btn" title="Leaderboard">🏆</button>
+    <div class="status">
+      <span class="streak" title="Streak">🔥 3</span>
+      <span class="health" title="Health">❤️ 3</span>
+      <button class="icon-btn profile" title="Profile">👤</button>
+    </div>
+  </header>
+
+  <!-- Main quiz area -->
+  <main>
+    <div class="card">
+      <h1>Pollution Quiz — Step by Step</h1>
+      <p class="hint">Select the correct option to move to the next question.</p>
+
+      <section id="quiz-container" class="question-area" aria-live="polite">
+        <!-- Questions injected by quiz.js -->
+      </section>
+
+      <div class="controls">
+        <div class="progress" id="progress"></div>
+        <div style="flex:1"></div>
+        <button id="restartBtn" class="small-btn" style="display:none">Restart</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Reward modal -->
+  <div id="reward-modal" class="reward-modal" hidden>
+    <div class="reward-content" role="dialog" aria-modal="true" aria-labelledby="reward-title">
+      <button id="closeReward" class="close-btn" aria-label="Close">✕</button>
+      <h2 id="reward-title">🎉 New Character Unlocked!</h2>
+      <img id="reward-img" src="" alt="Unlocked character image">
+      <p id="reward-name" class="reward-name"></p>
+      <button id="viewCollection" class="collect-btn">Go to Collection</button>
+    </div>
+  </div>
+
+  <!-- ----- Quiz data for this page ----- -->
+  <script>
+    // quiz type (used by awardCharacter)
+    const QUIZ_TYPE = "pollution";
+
+    // questions array used by the shared engine
+   const QUESTIONS = [
+  {
+    q: `Which pollutant causes smog in cities?`,
+    opts: ["Nitrogen Oxides", "Helium", "Hydrogen", "Oxygen"],
+    correct: 0
+  },
+  {
+    q: `In cities, planting trees along roads can help reduce:`,
+    opts: ["Plastic waste", "Sound and dust", "Ocean pollution", "Food wastage"],
+    correct: 1
+  },
+  {
+    q: `Which everyday product contributes the most to microplastic pollution in oceans?`,
+    opts: [
+      "Plastic straws",
+      "Synthetic clothes when washed",
+      "Glass bottles",
+      "Cotton bags"
+    ],
+    correct: 1
+  },
+  {
+    q: `Which of these is the least obvious but still harmful type of pollution?`,
+    opts: [
+      "Noise from headphones",
+      "Radioactive waste",
+      "Street litter",
+      "Industrial smoke"
+    ],
+    correct: 1
+  },
+  {
+    q: `Which country is famous for building vertical forests (towers with thousands of trees) to reduce city pollution?`,
+    opts: ["Japan", "Italy", "China", "Brazil"],
+    correct: 1
+  }
+  ]
+
+  </script>
+
+  <!-- shared reward/character logic (already in your project) -->
+  <script src="awardCharacter.js"></script>
+
+  <!-- shared quiz engine -->
+  <script src="quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Waste Quiz — Step by Step</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="icon-btn" title="Leaderboard">🏆</button>
+    <div class="status">
+      <span class="streak" title="Streak">🔥 3</span>
+      <span class="health" title="Health">❤️ 3</span>
+      <button class="icon-btn profile" title="Profile">👤</button>
+    </div>
+  </header>
+
+  <!-- Main quiz area -->
+  <main>
+    <div class="card">
+      <h1>Waste Quiz — Step by Step</h1>
+      <p class="hint">Select the correct option to move to the next question.</p>
+
+      <section id="quiz-container" class="question-area" aria-live="polite">
+        <!-- Questions injected by quiz.js -->
+      </section>
+
+      <div class="controls">
+        <div class="progress" id="progress"></div>
+        <div style="flex:1"></div>
+        <button id="restartBtn" class="small-btn" style="display:none">Restart</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Reward modal -->
+  <div id="reward-modal" class="reward-modal" hidden>
+    <div class="reward-content" role="dialog" aria-modal="true" aria-labelledby="reward-title">
+      <button id="closeReward" class="close-btn" aria-label="Close">✕</button>
+      <h2 id="reward-title">🎉 New Character Unlocked!</h2>
+      <img id="reward-img" src="" alt="Unlocked character image">
+      <p id="reward-name" class="reward-name"></p>
+      <button id="viewCollection" class="collect-btn">Go to Collection</button>
+    </div>
+  </div>
+
+  <!-- ----- Quiz data for this page ----- -->
+  <script>
+    // quiz type (used by awardCharacter)
+    const QUIZ_TYPE = "waste";
+
+    // questions array used by the shared engine
+const QUESTIONS = [
+{
+    q: `A friend brings lunch in aluminium foil every day. Best tip?`,
+    opts: [
+      "Switch to reusable steel or cloth wraps",
+      "Use thicker foil",
+      "Double-wrap for safety",
+      "Throw it all together"
+    ],
+    correct: 0
+  },
+  {
+    q: `Best way to cut e-waste at home?`,
+    opts: [
+      "Upgrade phone yearly",
+      "Donate or recycle old devices",
+      "Keep in drawer forever",
+      "Smash and bin"
+    ],
+    correct: 1
+  },
+  {
+    q: `Which everyday item takes the longest to decompose?`,
+    opts: ["Paper cup", "Plastic bottle", "Cotton cloth", "Orange peel"],
+    correct: 1
+  },
+  {
+    q: `If leftover pizza slices could talk, what would be their greenest wish?`,
+    opts: [
+      "Sleep in the fridge for tomorrow",
+      "Travel to the landfill",
+      "Fly to the moon",
+      "Jump into the washing machine"
+    ],
+    correct: 0
+  },
+  {
+    q: `Which of these would your compost bin call a “yummy snack”?`,
+    opts: ["Banana peel", "Plastic spoon", "Aluminium foil", "Glass beads"],
+    correct: 0
+  }
+]
+
+  </script>
+
+  <!-- shared reward/character logic (already in your project) -->
+  <script src="awardCharacter.js"></script>
+
+  <!-- shared quiz engine -->
+  <script src="quiz.js"></script>
+</body>
+</html>

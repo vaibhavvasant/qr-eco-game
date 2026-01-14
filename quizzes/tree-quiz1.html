@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trees Quiz — Step by Step</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <button class="icon-btn" title="Leaderboard">🏆</button>
+    <div class="status">
+      <span class="streak" title="Streak">🔥 3</span>
+      <span class="health" title="Health">❤️ 3</span>
+      <button class="icon-btn profile" title="Profile">👤</button>
+    </div>
+  </header>
+
+  <!-- Main quiz area -->
+  <main>
+    <div class="card">
+      <h1>Trees Quiz — Step by Step</h1>
+      <p class="hint">Select the correct option to move to the next question.</p>
+
+      <section id="quiz-container" class="question-area" aria-live="polite">
+        <!-- Questions injected by quiz.js -->
+      </section>
+
+      <div class="controls">
+        <div class="progress" id="progress"></div>
+        <div style="flex:1"></div>
+        <button id="restartBtn" class="small-btn" style="display:none">Restart</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Reward modal -->
+  <div id="reward-modal" class="reward-modal" hidden>
+    <div class="reward-content" role="dialog" aria-modal="true" aria-labelledby="reward-title">
+      <button id="closeReward" class="close-btn" aria-label="Close">✕</button>
+      <h2 id="reward-title">🎉 New Character Unlocked!</h2>
+      <img id="reward-img" src="" alt="Unlocked character image">
+      <p id="reward-name" class="reward-name"></p>
+      <button id="viewCollection" class="collect-btn">Go to Collection</button>
+    </div>
+  </div>
+
+  <!-- Quiz data -->
+  <script>
+    const QUIZ_TYPE = "tree";
+    const QUESTIONS = [
+      { q: `Which of these trees is known as the "oxygen factory"?`, opts: ["Banyan", "Neem", "Peepal", "Mango"], correct: 2 },
+      { q: `Which tree’s leaf is this? (Peepal/Neem/Mango)`, opts: ["Peepal", "Neem", "Mango"], correct: 2 },
+      { q: `Planting which type of trees can help reduce air pollution the most?`, opts: ["Evergreen trees", "Desert shrubs", "Short grasses", "Cactus"], correct: 0 },
+      { q: `Cutting trees near rivers increases the risk of floods.`, opts: ["True", "False"], correct: 0 },
+      { q: `Which city is known as the "Garden City of India"?`, opts: ["Jaipur", "Bengaluru", "Lucknow", "Bhopal"], correct: 1 }
+    ];
+  </script>
+
+  <script src="awardCharacter.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>

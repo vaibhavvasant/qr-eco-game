@@ -1,0 +1,92 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Leaderboard container */
+.leaderboard-container {
+  margin: 60px auto;
+  width: 90%;
+  max-width: 700px;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Heading */
+.leaderboard-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Table header */
+th {
+  background: #4caf50;
+  color: white;
+  padding: 14px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Table cells */
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+/* Alternating rows */
+tr:nth-child(even) {
+  background: #f4f9f4;
+}
+
+/* Hover effect on rows */
+tr:hover {
+  background: #e8f5e9;
+  transform: scale(1.01);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Top 3 highlight */
+tbody tr:nth-child(1) td {
+  background: gold;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(2) td {
+  background: silver;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(3) td {
+  background: #cd7f32; /* Bronze */
+  font-weight: bold;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  th, td {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .leaderboard-container {
+    padding: 1rem;
+  }
+}
